@@ -1,11 +1,9 @@
-# Uniswap SDK
+# FATExDAO SDK
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![Actions Status](https://github.com/VenomProtocol/venomswap-sdk/workflows/CI/badge.svg)](https://github.com/VenomProtocol/venomswap-sdk)
-[![npm version](https://img.shields.io/npm/v/@venomswap/sdk/latest.svg)](https://www.npmjs.com/package/@venomswap/sdk/v/latest)
-[![npm bundle size (scoped version)](https://img.shields.io/bundlephobia/minzip/@venomswap/sdk/latest.svg)](https://bundlephobia.com/result?p=@venomswap/sdk@latest)
-
-In-depth documentation on this SDK is available at [uniswap.org](https://uniswap.org/docs/v2/SDK/getting-started/).
+[![Actions Status](https://github.com/FATEx-DAO/fatex-dex-sdk/workflows/CI/badge.svg)](https://github.com/FATEx-DAO/fatex-dex-sdk)
+[![npm version](https://img.shields.io/npm/v/@fatex-dao/sdk/latest.svg)](https://www.npmjs.com/package/@fatex-dao/sdk/v/latest)
+[![npm bundle size (scoped version)](https://img.shields.io/bundlephobia/minzip/@fatex-dao/sdk/latest.svg)](https://bundlephobia.com/result?p=@fatex-dao/sdk@latest)
 
 ## Running tests
 
@@ -14,13 +12,13 @@ To run the tests, follow these steps. You must have at least node v10 and [yarn]
 First clone the repository:
 
 ```sh
-git clone https://github.com/VenomProtocol/venomswap-sdk.git
+git clone https://github.com/FATEx-DAO/fatex-dex-sdk.git
 ```
 
-Move into the uniswap-sdk working directory
+Move into the sdk working directory
 
 ```sh
-cd uniswap-sdk/
+cd fatex-sdk/
 ```
 
 Install dependencies
