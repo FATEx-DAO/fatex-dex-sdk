@@ -20,7 +20,7 @@ describe('Pair', () => {
       expect(Pair.getAddress(USDC, DAI)).toEqual('0x6697Cb54BCEe8df342fde53D3Cc70309915f1f74')
     })
     it('returns the correct address for Harmony Mainnet', () => {
-      expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_BUSD)).toEqual('0x0F9d7aC34366B6F5e7C543B3068404A1774dbD80')
+      expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_BUSD)).toEqual('0x46Fe645Ba94A4194A72D94fc5257DC90F789426F')
     })
   })
 
