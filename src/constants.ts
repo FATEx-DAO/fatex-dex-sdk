@@ -44,7 +44,7 @@ export const FACTORY_ADDRESSES: { [chainId in ChainId]: string } = {
   [ChainId.HARMONY_TESTNET]: '0x2a749c5CFBC9Eb262370DbC3274BD8117f8d8749'
 }
 
-export const INIT_CODE_HASH = '0xde14db0f8465074061f0c73577f6323a5d495ed7cea7cdbab19cfa778b983acf'
+export const INIT_CODE_HASH = '0xce9dcbc3a0338c6024fc1c7bda173be72d4a35fa19aa6594738a66a2df8dbf00'
 
 export const MINIMUM_LIQUIDITY = JSBI.BigInt(1000)
 
