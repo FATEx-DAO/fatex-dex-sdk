@@ -43,10 +43,10 @@ export class Pair {
         codeHash = INIT_CODE_HASH
       } else if (pairType === PairType.SUSHI) {
         factory = SUSHI_FACTORY_ADDRESSES[tokenA.chainId]
-        codeHash = SUSHI_INIT_CODE_HASH[tokenA.chainId]
+        codeHash = SUSHI_INIT_CODE_HASH
       } else if (pairType === PairType.VIPER) {
         factory = VIPER_FACTORY_ADDRESSES[tokenA.chainId]
-        codeHash = VIPER_INIT_CODE_HASH[tokenA.chainId]
+        codeHash = VIPER_INIT_CODE_HASH
       } else {
         factory = FACTORY_ADDRESSES[tokenA.chainId]
         codeHash = INIT_CODE_HASH
