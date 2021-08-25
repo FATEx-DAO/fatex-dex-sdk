@@ -26,7 +26,7 @@ import { parseBigintIsh, sqrt } from '../utils'
 import { InsufficientInputAmountError, InsufficientReservesError } from '../errors'
 import { Token } from './token'
 
-let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: string } } = {}
+let PAIR_ADDRESS_CACHE: { [token0Address: string]: { [token1Address: string]: { [pairType: number]: string } } } = {}
 
 export class Pair {
   public readonly liquidityToken: Token
@@ -35,7 +35,7 @@ export class Pair {
   public static getAddress(tokenA: Token, tokenB: Token, pairType: PairType = PairType.FATE): string {
     const tokens = tokenA.sortsBefore(tokenB) ? [tokenA, tokenB] : [tokenB, tokenA] // does safety checks
 
-    if (PAIR_ADDRESS_CACHE?.[tokens[0].address]?.[tokens[1].address] === undefined) {
+    if (PAIR_ADDRESS_CACHE?.[tokens[0].address]?.[tokens[1].address]?.[pairType] === undefined) {
       let factory: string
       let codeHash: string
       if (pairType === PairType.FATE) {
@@ -57,16 +57,18 @@ export class Pair {
         ...PAIR_ADDRESS_CACHE,
         [tokens[0].address]: {
           ...PAIR_ADDRESS_CACHE?.[tokens[0].address],
-          [tokens[1].address]: getCreate2Address(
-            factory,
-            keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
-            codeHash
-          )
+          [tokens[1].address]: {
+            [pairType]: getCreate2Address(
+              factory,
+              keccak256(['bytes'], [pack(['address', 'address'], [tokens[0].address, tokens[1].address])]),
+              codeHash
+            )
+          }
         }
       }
     }
 
-    return PAIR_ADDRESS_CACHE[tokens[0].address][tokens[1].address]
+    return PAIR_ADDRESS_CACHE[tokens[0].address][tokens[1].address][pairType]
   }
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount, pairType: PairType = PairType.FATE) {
