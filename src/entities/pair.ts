@@ -11,7 +11,7 @@ import {
   BigintIsh,
   ChainId,
   FACTORY_ADDRESSES,
-  FIVE,
+  FIVE, FUZZ_FI_FACTORY_ADDRESSES, FUZZ_FI_INIT_CODE_HASH,
   INIT_CODE_HASH,
   MINIMUM_LIQUIDITY,
   ONE,
@@ -47,6 +47,9 @@ export class Pair {
       } else if (pairType === PairType.VIPER) {
         factory = VIPER_FACTORY_ADDRESSES[tokenA.chainId]
         codeHash = VIPER_INIT_CODE_HASH
+      } else if (pairType === PairType.FUZZ_FI) {
+        factory = FUZZ_FI_FACTORY_ADDRESSES[tokenA.chainId]
+        codeHash = FUZZ_FI_INIT_CODE_HASH
       } else {
         factory = FACTORY_ADDRESSES[tokenA.chainId]
         codeHash = INIT_CODE_HASH
@@ -87,6 +90,9 @@ export class Pair {
     } else if (pairType === PairType.VIPER) {
       symbol = 'VENOM-LP'
       name = 'Venom LP Token'
+    } else if (pairType === PairType.FUZZ_FI) {
+      symbol = 'FUZZ-LP'
+      name = 'Fuzz LPs'
     } else {
       symbol = 'FATEx-LP'
       name = 'FATExDAO LP Token'

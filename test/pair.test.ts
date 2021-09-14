@@ -1,4 +1,4 @@
-import { ChainId, Pair, PairType, Price, Token, TokenAmount, WETH } from '../src'
+import {ChainId, Pair, PairType, Price, Token, TokenAmount, WETH} from '../src'
 
 describe('Pair', () => {
   const USDC = new Token(ChainId.MAINNET, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 18, 'USDC', 'USD Coin')
@@ -7,9 +7,10 @@ describe('Pair', () => {
   const HARMONY_MAINNET_WONE = new Token(ChainId.HARMONY_MAINNET, '0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a', 18, 'WONE', 'Wrapped ONE')
   const HARMONY_MAINNET_BUSD = new Token(ChainId.HARMONY_MAINNET, '0xE176EBE47d621b984a73036B9DA5d834411ef734', 18, 'BUSD', 'Binance USD')
   const HARMONY_MAINNET_USDC = new Token(ChainId.HARMONY_MAINNET, '0x985458E523dB3d53125813eD68c274899e9DfAb4', 6, '1USDC', 'USD Coin')
+  const HARMONY_MAINNET_UST = new Token(ChainId.HARMONY_MAINNET, '0x224e64ec1BDce3870a6a6c777eDd450454068FEC', 18, 'UST', 'Wrapped UST Token')
 
-  const HARMONY_TESTNET_WONE = new Token(ChainId.HARMONY_TESTNET, '0x7466d7d0c21fa05f32f5a0fa27e12bdc06348ce2', 18, 'WONE', 'Wrapped ONE')
-  const HARMONY_TESTNET_BUSD = new Token(ChainId.HARMONY_TESTNET, '0x0e80905676226159cc3ff62b1876c907c91f7395', 18, 'BUSD', 'Binance USD')
+  const HARMONY_TESTNET_WONE = new Token(ChainId.HARMONY_TESTNET, '0x7466d7d0C21Fa05F32F5a0Fa27e12bdC06348Ce2', 18, 'WONE', 'Wrapped ONE')
+  const HARMONY_TESTNET_BUSD = new Token(ChainId.HARMONY_TESTNET, '0x0E80905676226159cC3FF62B1876C907C91F7395', 18, 'BUSD', 'Binance USD')
 
   describe('constructor', () => {
     it('cannot be used for tokens on different chains', () => {
@@ -24,13 +25,16 @@ describe('Pair', () => {
       expect(Pair.getAddress(USDC, DAI)).toEqual('0xD8C5A2716d45974A62b3fAeFa70026A0570b529B')
     })
     it('returns the correct address for Harmony Mainnet', () => {
-      expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_BUSD)).toEqual('0x545fFB887fE1F60B207EBe08f3833FB51bbAC798')
+      expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_BUSD, PairType.FATE)).toEqual('0x125FE08811F40f2fc2ae7A6DAA4b4eCc5daFB88d')
     })
     it('returns the correct address for Harmony Testnet for Viper', () => {
       expect(Pair.getAddress(HARMONY_TESTNET_WONE, HARMONY_TESTNET_BUSD, PairType.VIPER)).toEqual('0x0fd43eB53e9c80eb439dC47da7539d8b6f71DC1E')
     })
     it('returns the correct address for Harmony Mainnet for Viper', () => {
       expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_USDC, PairType.VIPER)).toEqual('0xF170016d63fb89e1d559e8F87a17BCC8B7CD9c00')
+    })
+    it('returns the correct address for Harmony Mainnet for Fuzz', () => {
+      expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_UST, PairType.FUZZ_FI)).toEqual('0xe0ABC0253A8654c2d217f931Df2c9616e30A4573')
     })
     it('returns the correct address for Harmony Testnet for Sushi', () => {
       expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_USDC, PairType.SUSHI)).toEqual('0xBf255d8c30DbaB84eA42110EA7DC870F01c0013A')
