@@ -11,7 +11,9 @@ import {
   BigintIsh,
   ChainId,
   FACTORY_ADDRESSES,
-  FIVE, FUZZ_FI_FACTORY_ADDRESSES, FUZZ_FI_INIT_CODE_HASH,
+  FIVE, FUZZ_FI_FACTORY_ADDRESSES,
+  FUZZ_FI_INIT_CODE_HASH,
+  DEFI_KINGDOM_INIT_CODE_HASH,
   INIT_CODE_HASH,
   MINIMUM_LIQUIDITY,
   ONE,
@@ -20,7 +22,7 @@ import {
   SUSHI_INIT_CODE_HASH,
   VIPER_FACTORY_ADDRESSES,
   VIPER_INIT_CODE_HASH,
-  ZERO
+  ZERO, DEFI_KINGDOM_FACTORY_ADDRESSES
 } from '../constants'
 import { parseBigintIsh, sqrt } from '../utils'
 import { InsufficientInputAmountError, InsufficientReservesError } from '../errors'
@@ -50,6 +52,9 @@ export class Pair {
       } else if (pairType === PairType.FUZZ_FI) {
         factory = FUZZ_FI_FACTORY_ADDRESSES[tokenA.chainId]
         codeHash = FUZZ_FI_INIT_CODE_HASH
+      } else if (pairType === PairType.DEFI_KINGDOM) {
+        factory = DEFI_KINGDOM_FACTORY_ADDRESSES[tokenA.chainId]
+        codeHash = DEFI_KINGDOM_INIT_CODE_HASH
       } else {
         factory = FACTORY_ADDRESSES[tokenA.chainId]
         codeHash = INIT_CODE_HASH
@@ -93,6 +98,9 @@ export class Pair {
     } else if (pairType === PairType.FUZZ_FI) {
       symbol = 'FUZZ-LP'
       name = 'Fuzz LPs'
+    } else if (pairType === PairType.DEFI_KINGDOM) {
+      symbol = 'JEWEL-LP'
+      name = 'Jewel LP Token'
     } else {
       symbol = 'FATEx-LP'
       name = 'FATExDAO LP Token'

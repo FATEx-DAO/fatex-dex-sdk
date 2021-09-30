@@ -36,6 +36,9 @@ describe('Pair', () => {
     it('returns the correct address for Harmony Mainnet for Fuzz', () => {
       expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_UST, PairType.FUZZ_FI)).toEqual('0xe0ABC0253A8654c2d217f931Df2c9616e30A4573')
     })
+    it('returns the correct address for Harmony Mainnet for DeFi Kingdom', () => {
+      expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_USDC, PairType.DEFI_KINGDOM)).toEqual('0x66C17f5381d7821385974783BE34c9b31f75Eb78')
+    })
     it('returns the correct address for Harmony Testnet for Sushi', () => {
       expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_USDC, PairType.SUSHI)).toEqual('0xBf255d8c30DbaB84eA42110EA7DC870F01c0013A')
     })
