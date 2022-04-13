@@ -4,6 +4,9 @@ describe('Pair', () => {
   const USDC = new Token(ChainId.MAINNET, '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', 18, 'USDC', 'USD Coin')
   const DAI = new Token(ChainId.MAINNET, '0x6B175474E89094C44Da98b954EedeAC495271d0F', 18, 'DAI', 'DAI Stablecoin')
 
+  const POLYGON_MAINNET_FATE = new Token(ChainId.POLYGON_MAINNET, '0x4853365bC81f8270D902076892e13F27c27e7266', 18, 'FATE', 'FATExFI')
+  const POLYGON_MAINNET_USDC = new Token(ChainId.POLYGON_MAINNET, '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174', 6, 'USDC', 'USD Coin')
+
   const HARMONY_MAINNET_WONE = new Token(ChainId.HARMONY_MAINNET, '0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a', 18, 'WONE', 'Wrapped ONE')
   const HARMONY_MAINNET_BUSD = new Token(ChainId.HARMONY_MAINNET, '0xE176EBE47d621b984a73036B9DA5d834411ef734', 18, 'BUSD', 'Binance USD')
   const HARMONY_MAINNET_USDC = new Token(ChainId.HARMONY_MAINNET, '0x985458E523dB3d53125813eD68c274899e9DfAb4', 6, '1USDC', 'USD Coin')
@@ -21,8 +24,8 @@ describe('Pair', () => {
   })
 
   describe('#getAddress', () => {
-    it('returns the correct address for Ethereum Mainnet', () => {
-      expect(Pair.getAddress(USDC, DAI)).toEqual('0xD8C5A2716d45974A62b3fAeFa70026A0570b529B')
+    it('returns the correct address for Polygon Mainnet', () => {
+      expect(Pair.getAddress(POLYGON_MAINNET_FATE, POLYGON_MAINNET_USDC, PairType.FATE)).toEqual('0x69c894Dce6FA2E3b89D3111d29167F0484AC0b2A')
     })
     it('returns the correct address for Harmony Mainnet', () => {
       expect(Pair.getAddress(HARMONY_MAINNET_WONE, HARMONY_MAINNET_BUSD, PairType.FATE)).toEqual('0x125FE08811F40f2fc2ae7A6DAA4b4eCc5daFB88d')

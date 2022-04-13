@@ -22,7 +22,7 @@ import {
   SUSHI_INIT_CODE_HASH,
   VIPER_FACTORY_ADDRESSES,
   VIPER_INIT_CODE_HASH,
-  ZERO, DEFI_KINGDOM_FACTORY_ADDRESSES
+  ZERO, DEFI_KINGDOM_FACTORY_ADDRESSES, INIT_CODE_HASHES,
 } from '../constants'
 import { parseBigintIsh, sqrt } from '../utils'
 import { InsufficientInputAmountError, InsufficientReservesError } from '../errors'
@@ -42,7 +42,7 @@ export class Pair {
       let codeHash: string
       if (pairType === PairType.FATE) {
         factory = FACTORY_ADDRESSES[tokenA.chainId]
-        codeHash = INIT_CODE_HASH
+        codeHash = INIT_CODE_HASHES[tokenA.chainId]
       } else if (pairType === PairType.SUSHI) {
         factory = SUSHI_FACTORY_ADDRESSES[tokenA.chainId]
         codeHash = SUSHI_INIT_CODE_HASH

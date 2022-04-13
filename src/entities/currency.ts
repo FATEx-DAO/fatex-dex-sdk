@@ -9,24 +9,21 @@ import { validateSolidityTypeInstance } from '../utils'
  * The only instance of the base class `Currency` is Ether.
  */
 export class Currency {
-  public readonly decimals: number
-  public readonly symbol?: string
-  public readonly name?: string
-
   /**
    * The ETHER instance of the base class `Currency`.
    */
   public static readonly ETHER: Currency = new Currency(18, 'ETH', 'Ether')
-
   /**
    * The HARMONY instance of the base class `Currency`.
    */
   public static readonly HARMONY: Currency = new Currency(18, 'ONE', 'Harmony')
-
   /**
    * The BINANCE_COIN instance of the base class `Currency`.
    */
   public static readonly BINANCE_COIN: Currency = new Currency(18, 'BNB', 'Binance Coin')
+  public readonly decimals: number
+  public readonly symbol?: string
+  public readonly name?: string
 
   /**
    * Constructs an instance of the base class `Currency`. The only instance of the base class `Currency` is `Currency.ETHER`.
