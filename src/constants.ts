@@ -6,7 +6,8 @@ export type BigintIsh = JSBI | bigint | string
 export enum Blockchain {
   ETHEREUM = 1,
   BINANCE_SMART_CHAIN = 2,
-  HARMONY = 3
+  HARMONY = 3,
+  POLYGON = 4,
 }
 
 export enum ChainId {
