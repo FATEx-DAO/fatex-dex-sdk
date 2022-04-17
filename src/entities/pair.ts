@@ -87,8 +87,8 @@ export class Pair {
     let symbol: string
     let name: string
     if (pairType === PairType.FATE) {
-      symbol = 'FATEx-LP'
-      name = 'FATExDAO LP Token'
+      symbol = 'FATExFI-LP'
+      name = 'FATExFI LP Token'
     } else if (pairType === PairType.SUSHI) {
       symbol = 'SLP'
       name = 'SushiSwap LP Token'
@@ -102,8 +102,8 @@ export class Pair {
       symbol = 'JEWEL-LP'
       name = 'Jewel LP Token'
     } else {
-      symbol = 'FATEx-LP'
-      name = 'FATExDAO LP Token'
+      symbol = 'FATExFI-LP'
+      name = 'FATExFI LP Token'
     }
 
     this.liquidityToken = new Token(
